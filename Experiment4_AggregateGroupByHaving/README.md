@@ -38,124 +38,167 @@ HAVING condition;
 
 **Question 1**
 --
--- Paste Question 1 here
+![Screenshot 2025-04-29 173049](https://github.com/user-attachments/assets/53bcfb64-4be8-4ba0-81d3-7a475f0cc255)
+
 
 ```sql
--- Paste your SQL code below for Question 1
+select PatientID, count(*) as TotalAppointments
+from Appointments
+group by PatientID ;
+
 ```
 
 **Output:**
 
-![Output1](output.png)
+![Screenshot 2025-04-29 173113](https://github.com/user-attachments/assets/4b46fcd2-6f06-4361-8840-30e74b2e1a7d)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+![Screenshot 2025-04-29 173125](https://github.com/user-attachments/assets/c214c29a-3696-4a1f-abcc-e30acc76bcbd)
+
 
 ```sql
--- Paste your SQL code below for Question 2
+select Specialty, avg(DATEDIFF(YEAR, DateOfBirth, GETDATE())) as AvgAge
+from Doctors
+group by Specialty;
 ```
 
 **Output:**
 
-![Output2](output.png)
+![Screenshot 2025-04-29 173210](https://github.com/user-attachments/assets/6864e6c8-6721-4b74-bb22-d9c1b38597d1)
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+![Screenshot 2025-04-29 173153](https://github.com/user-attachments/assets/a90426c1-e3a3-4c71-ae8c-8ec02fb98847)
+
 
 ```sql
--- Paste your SQL code below for Question 3
+select PatientID, sum(length(Medications) - length(replace(Medications, ',', '')) + 1 )::int as AvgMedications
+from MedicalRecords
+group by 
+PatientID ;
 ```
 
 **Output:**
 
-![Output3](output.png)
+![Screenshot 2025-04-29 173223](https://github.com/user-attachments/assets/7febec02-926d-4f35-8988-41f580b3b852)
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+![Screenshot 2025-04-29 173204](https://github.com/user-attachments/assets/811d7d4e-ff2d-4ec6-b385-03d7cbdcd42a)
+
 
 ```sql
--- Paste your SQL code below for Question 4
+select avg(length(name)) as 
+avg_name_length
+from customer
+where city = 'Chennai';
 ```
 
 **Output:**
 
-![Output4](output.png)
+![Screenshot 2025-04-29 173210](https://github.com/user-attachments/assets/7c4f3089-e03c-4a2c-8e53-157ca92e1e95)
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+![Screenshot 2025-04-29 173216](https://github.com/user-attachments/assets/82af1fe5-1353-4cc6-8535-bfcd2c290703)
+
 
 ```sql
--- Paste your SQL code below for Question 5
+select avg(income) as avg_income
+from employee
+where name like 'A%';
 ```
 
 **Output:**
+![Screenshot 2025-04-29 173223](https://github.com/user-attachments/assets/e75add66-1e8b-45c6-9f7e-21cdec34b501)
 
-![Output5](output.png)
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+![Screenshot 2025-04-29 173229](https://github.com/user-attachments/assets/ce7c1913-1a1a-4afc-ba93-8fb8e1254287)
+
 
 ```sql
--- Paste your SQL code below for Question 6
+select count(distinct salesman_id) as COUNT
+from orders ;
 ```
 
 **Output:**
 
-![Output6](output.png)
+![Screenshot 2025-04-29 173236](https://github.com/user-attachments/assets/3db650f2-dddf-493a-bf54-58f38be33bb7)
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+![Screenshot 2025-04-29 173246](https://github.com/user-attachments/assets/d33eb8d6-fc0a-4cc7-8fc8-54f004430fbe)
+
 
 ```sql
--- Paste your SQL code below for Question 7
+select avg(length(email)) as avg_email_length_below_30
+from customer
+where city = 'Mumbai';
 ```
 
 **Output:**
 
-![Output7](output.png)
+![Screenshot 2025-04-29 173252](https://github.com/user-attachments/assets/218a1813-966e-4ff0-9807-84ea1d4c3e1f)
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+![Screenshot 2025-04-29 173300](https://github.com/user-attachments/assets/fd8fcac2-92d5-4b31-b98c-f155922f635f)
+
 
 ```sql
--- Paste your SQL code below for Question 8
+select age, SUM(income)
+from employee
+group by age
+having SUM(income) > 1000000 ;
 ```
 
 **Output:**
+![Screenshot 2025-04-29 173308](https://github.com/user-attachments/assets/a6597985-53b5-429c-948a-f2d37c38dde5)
 
-![Output8](output.png)
 
 **Question 9**
 ---
--- Paste Question 9 here
+![Screenshot 2025-04-29 173318](https://github.com/user-attachments/assets/5f417505-f0ac-443c-9554-5fb404f2cf44)
+
 
 ```sql
--- Paste your SQL code below for Question 9
+select category_id, SUM(price * category_id) as Revenue
+from products
+group by category_id
+having SUM(price * category_id) > 25 ;l
+
 ```
 
 **Output:**
+![Screenshot 2025-04-29 173325](https://github.com/user-attachments/assets/08b6b6fb-e02f-4e11-b5f2-df710397cbec)
 
-![Output9](output.png)
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+![Screenshot 2025-04-29 173333](https://github.com/user-attachments/assets/ae2191d6-df9c-4649-a8aa-a3fb3152d6c4)
+
 
 ```sql
--- Paste your SQL code below for Question 10
+select category_id, SUM(price) as Total_Cost
+from products
+group by category_id
+having SUM(price) > 50 ;
 ```
 
 **Output:**
 
-![Output10](output.png)
-
+![Screenshot 2025-04-29 173340](https://github.com/user-attachments/assets/8c976ead-4dc6-4914-8659-98b3dc2242f6)
 
 ## RESULT
 Thus, the SQL queries to implement aggregate functions, GROUP BY, and HAVING clause have been executed successfully.
